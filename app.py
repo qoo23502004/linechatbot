@@ -1,5 +1,5 @@
 from flask import Flask, request, abort
-
+from sayhi import *
 from linebot import (
     LineBotApi, WebhookHandler
 )
@@ -41,7 +41,9 @@ def handle_message(event):
     if event.message.text=="!WORLD":
         message = TextSendMessage(text="HELLO WORLD")
         line_bot_api.reply_message(event.reply_token, message)
-
+    if event.message.text=="WHAT":
+        message = TextSendMessage(text=sayhi())
+        line_bot_api.reply_message(event.reply_token, message)
 
 
 
