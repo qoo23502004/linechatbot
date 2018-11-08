@@ -1,6 +1,6 @@
 import requests
 def say():
-    url = "https://www.google.com.tw"
+    url = "https://decapi.me/twitch/uptime?channel=vv0z1"
     content = requests.get(url).text
     
     return content
