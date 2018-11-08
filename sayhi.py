@@ -1,6 +1,8 @@
 def sayhi():
-    print("I'm from other python app")
+    string = "I'm from other python app"
+    return string
+    
 
 
 if __name__ == "__main__":
-    sayhi()
+    print(sayhi())

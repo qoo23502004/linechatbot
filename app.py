@@ -42,7 +42,8 @@ def handle_message(event):
         message = TextSendMessage(text="HELLO WORLD")
         line_bot_api.reply_message(event.reply_token, message)
     if event.message.text=="WHAT":
-        message = TextSendMessage(text=sayhi())
+        string = sayhi()
+        message = TextSendMessage(text=string)
         line_bot_api.reply_message(event.reply_token, message)
 
 
