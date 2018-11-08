@@ -43,7 +43,7 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, message)
     if event.message.text=="WHAT":
         string = say()
-        message = TextSendMessage(sayhi())
+        message = TextSendMessage(text=string)
         line_bot_api.reply_message(event.reply_token, message)
 
 
