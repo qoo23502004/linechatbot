@@ -1,6 +1,9 @@
+import requests
 def say():
-    string = "I'm from other python app"
-    return string
+    url = "https://www.google.com.tw"
+    content = requests.get(url)
+    
+    return content
     
 
 
