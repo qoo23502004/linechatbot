@@ -1,5 +1,5 @@
 import requests
-def say():
+def checkState():
     url = "https://decapi.me/twitch/uptime?channel=vv0z1"
     content = requests.get(url).text
     
