@@ -45,7 +45,7 @@ def handle_message(event):
     
     
     if event.message.text=="!help":
-        message = TextSendMessage(text="!HI / !狀態")
+        message = TextSendMessage(text="!HI / !狀態 ")
         line_bot_api.reply_message(event.reply_token, message)
 
 
