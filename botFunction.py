@@ -1,12 +1,13 @@
 import requests
-
 def checkState():
     url = "https://decapi.me/twitch/uptime?channel=vv0z1"
-    content = requests.get(url).text    
+    content = requests.get(url).text
+    
     return content
     
 
 
 if __name__ == "__main__":
-    
-    print(" ")
+    a=say()
+    print(a)
+
