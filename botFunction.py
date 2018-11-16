@@ -29,14 +29,16 @@ def googleSearch(keyword):
 
   		# 以 CSS 的選擇器來抓取 Google 的搜尋結果
 		items = soup.select('div.g > h3.r > a[href^="/url"]')
+		
 		for i in items:
     			# 標題
-			print("標題：" + i.text)
+			#print("標題：" + i.text)
     			# 網址
-			print("網址：" + i.get('href'))
-			break
+			#print("網址：" + i.get('href'))
+			final=i.text+" "+i.get('href')
+			return final
 
 if __name__ == "__main__":
-    googleSearch("test")
+    print(googleSearch("test"))
     
 

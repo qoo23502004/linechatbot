@@ -52,7 +52,7 @@ def handle_message(event):
     keyword=event.message.text
     keywordCut=keyword.split(';')
     if keywordCut[0]=="!google" and len(keywordCut)==2:
-        content = keywordCut[1]
+        content = googleSearch(keywordCut[1])
         message = TextSendMessage(text=content)
         line_bot_api.reply_message(event.reply_token, message)
 
