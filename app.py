@@ -47,10 +47,11 @@ def handle_message(event):
     if event.message.text=="!help":
         message = TextSendMessage(text="!HI / !狀態 ")
         line_bot_api.reply_message(event.reply_token, message)
-
-
-
-
+    
+    if event.message.text=="!"
+        key=re.match('www', 'www.runoob.com').span()
+        message = TextSendMessage(text=key)
+        line_bot_api.reply_message(event.reply_token, message)
 
 
 
