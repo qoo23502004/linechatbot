@@ -1,4 +1,3 @@
-import re
 from flask import Flask, request, abort
 from bs4 import BeautifulSoup
 from botFunction import *
@@ -50,8 +49,9 @@ def handle_message(event):
         message = TextSendMessage(text="!HI / !狀態 ")
         line_bot_api.reply_message(event.reply_token, message)
     
-    if event.message.text=="!":
-        key=re.match('www', 'www.runoob.com').span()
+    keyword=event.message.text.split(';')
+    if keyword[0]=="!google":
+        
         message = TextSendMessage(text=key)
         line_bot_api.reply_message(event.reply_token, message)
 
