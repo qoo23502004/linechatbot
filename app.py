@@ -49,9 +49,10 @@ def handle_message(event):
         message = TextSendMessage(text="!HI / !狀態 ")
         line_bot_api.reply_message(event.reply_token, message)
     
-    keyword=event.message.text.split(';')
-    if keyword[0]=="!google" and len(keyword)==2:
-        content = googleSearch(keyword[1])
+    keyword=event.message.text
+    keywordCut=keyword.split(';')
+    if keywordCut[0]=="!google" and len(keywordCut)==2:
+        content = googleSearch(keywordCut[1])
         message = TextSendMessage(text=content)
         line_bot_api.reply_message(event.reply_token, message)
 
