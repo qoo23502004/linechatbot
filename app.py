@@ -1,3 +1,4 @@
+import re
 from flask import Flask, request, abort
 from bs4 import BeautifulSoup
 from botFunction import *
