@@ -52,7 +52,7 @@ def handle_message(event):
     keyword=event.message.text.split(';')
     if keyword[0]=="!google":
         
-        message = TextSendMessage(text=key)
+        message = TextSendMessage(text="Successful")
         line_bot_api.reply_message(event.reply_token, message)
 
 
