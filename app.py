@@ -50,9 +50,9 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, message)
     
     keyword=event.message.text.split(';')
-    if keyword[0]=="!google":
+    if keyword[0]=="!google" and len(keyword)==2:
         
-        message = TextSendMessage(text="Successful")
+        message = TextSendMessage(text=googleSearch(keyword[1]))
         line_bot_api.reply_message(event.reply_token, message)
 
 
