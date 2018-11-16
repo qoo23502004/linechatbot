@@ -34,9 +34,9 @@ def googleSearch(keyword):
 			print("標題：" + i.text)
     			# 網址
 			print("網址：" + i.get('href'))
-
+			break
 
 if __name__ == "__main__":
-    print(" ")
+    googleSearch("test")
     
 
