@@ -51,7 +51,7 @@ def handle_message(event):
     
     keyword=event.message.text
     keywordCut=keyword.split(';')
-    if keywordCut[]=="!sr" and len(keywordCut)==2:
+    if keywordCut[0]=="!sr" and len(keywordCut)==2:
         content = musicSearch(keywordCut[1])
         message = TextSendMessage(text="https://www.youtube.com/watch?v="+content)
         line_bot_api.reply_message(event.reply_token, message)
@@ -62,3 +62,4 @@ import os
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=port)
+    
