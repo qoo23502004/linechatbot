@@ -38,6 +38,26 @@ def googleSearch(keyword):
 			final=i.text+" "+i.get('href')
 			return final
 
+def musicSearch(keyword):
+	
+	url = "https://www.youtube.com/results?search_query=" + keyword
+	res = requests.get(url, verify=False)
+	soup = BeautifulSoup(res.text,'html.parser')
+	last = None
+
+	for entry in soup.select('a'):
+		m = re.search("v=(.*)",entry['href'])
+		if m:
+			target = m.group(1)
+			if target == last:
+				continue
+			if re.search("list",target):
+				continue
+			youtubecode = str(target)
+			return youtubecode
+
+
+
 if __name__ == "__main__":
     print(googleSearch("test"))
     
