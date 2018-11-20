@@ -3,7 +3,7 @@ import re
 from bs4 import BeautifulSoup
 
 def checkState():
-    url = "https://decapi.me/twitch/uptime?channel=ramiii"
+    url = "https://decapi.me/twitch/uptime?channel=vv0z1"
     content = requests.get(url).text
     
     return content
