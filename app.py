@@ -38,7 +38,7 @@ def handle_message(event):
     if event.message.text=="!HI":
         message = TextSendMessage(text="Hi^^")
         line_bot_api.reply_message(event.reply_token, message)
-    x=time.strftime("%H:%M:%S", time.localtime())
+    x=time.strftime("%H+8:%M:%S", time.localtime())
     if event.message.text=="!狀態":
         string = checkState()
         message = TextSendMessage(text=x)
