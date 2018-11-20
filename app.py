@@ -48,9 +48,9 @@ def handle_message(event):
     keyword=event.message.text
     keywordCut=keyword.split(' ')
     if keywordCut[0]=="!sr" and len(keywordCut)>=2:
-	for i in range(1,len(keywordCut)):	
-		ytKeyword=ytKeyword+keywordCut[i]+" "
-	content = musicSearch(ytKeyword)
+        for i in range(1,len(keywordCut)):	
+            ytKeyword=ytKeyword+keywordCut[i]+" "
+        content = musicSearch(ytKeyword)
         message = TextSendMessage(text="https://www.youtube.com/watch?v="+content)
         line_bot_api.reply_message(event.reply_token, message)
 
