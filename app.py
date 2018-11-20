@@ -38,13 +38,13 @@ def handle_message(event):
     if event.message.text=="!HI":
         message = TextSendMessage(text="Hi^^")
         line_bot_api.reply_message(event.reply_token, message)
-    x=time.strftime("%H+8:%M:%S", time.localtime())
+    x=time.strftime("%H:%M:%S", time.datetime())
     if event.message.text=="!狀態":
         string = checkState()
         message = TextSendMessage(text=x)
         line_bot_api.reply_message(event.reply_token, message)
 
-    t=time.strftime("%H+8:%M:%S", time.localtime())
+    t=time.strftime("%H:%M:%S", time.localtime())
     if t=="15:16:00":       
         message=TextSendMessage(text="現在時間，下午3點16分")
         line_bot_api.push_message("U72ce8eaabd1976971ee0276099b08a9b", message)
