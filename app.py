@@ -34,7 +34,7 @@ def callback():
 # 處理訊息
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-
+    ytKeyword=""
     if event.message.text=="!HI":
         message = TextSendMessage(text="Hi^^")
         line_bot_api.reply_message(event.reply_token, message)
@@ -43,16 +43,14 @@ def handle_message(event):
         string = checkState()
         message = TextSendMessage(text=string)
         line_bot_api.reply_message(event.reply_token, message)
-    
-    
-    if event.message.text=="!help":
-        message = TextSendMessage(text="!HI / !狀態 ")
-        line_bot_api.reply_message(event.reply_token, message)
+
     
     keyword=event.message.text
     keywordCut=keyword.split(' ')
     if keywordCut[0]=="!sr" and len(keywordCut)>=2:
-        content = musicSearch(keywordCut[1])
+	for i in range(1,len(keywordCut)):	
+		ytKeyword=ytKeyword+keywordCut[i]+" "
+	content = musicSearch(ytKeyword)
         message = TextSendMessage(text="https://www.youtube.com/watch?v="+content)
         line_bot_api.reply_message(event.reply_token, message)
 
