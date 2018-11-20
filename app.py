@@ -8,7 +8,7 @@ from linebot.exceptions import (
     InvalidSignatureError
 )
 from linebot.models import *
-
+import time
 app = Flask(__name__)
 
 # Channel Access Token
@@ -44,6 +44,10 @@ def handle_message(event):
         message = TextSendMessage(text=string)
         line_bot_api.reply_message(event.reply_token, message)
 
+    t=time.strftime("%H:%M:%S", time.localtime())
+    if t=="15:00:00":       
+        message=TextSendMessage(text="現在時間，下午3點整")
+        line_bot_api.push_message(push_token, message)
     
     keyword=event.message.text
     keywordCut=keyword.split(' ')
