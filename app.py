@@ -45,7 +45,7 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, message)
 
     t=time.strftime("%H:%M:%S", time.localtime())
-    if t=="15:05:00":       
+    if t=="15:07:00":       
         message=TextSendMessage(text="現在時間，下午3點05分")
         line_bot_api.push_message(push_token, message)
     
