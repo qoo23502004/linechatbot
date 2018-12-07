@@ -35,6 +35,7 @@ def callback():
 # 處理訊息
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
+    cityDict={"!嘉義縣":0,"!新北市":1,"!嘉義市":2,"!新竹縣":3,"!新竹市":4,"!台北市":5,"!台南市":6,"!宜蘭縣":7,"!苗栗縣":8,"!雲林縣":9,"!花蓮縣":10,"!台中市":11,"!台東縣":12,"!桃園市":13,"!南投縣":14,"!高雄市":15,"!金門縣":16,"!屏東縣":17,"!基隆市":18,"!澎湖縣":19,"!彰化縣":20,"!連江縣":21}
     ytKeyword=""
     if event.message.text=="!HI":
         message = TextSendMessage(text="Hi^^")
@@ -45,7 +46,10 @@ def handle_message(event):
         message = TextSendMessage(text=string)
         line_bot_api.reply_message(event.reply_token, message)
 
-    
+    if event.message.text==cityDict:
+        string = weatherSearch(event.message.text)
+        message = TextSendMessage(text=string)
+        line_bot_api.reply_message(event.reply_token, message)
     
     keyword=event.message.text
     keywordCut=keyword.split(' ')
