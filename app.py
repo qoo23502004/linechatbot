@@ -46,7 +46,7 @@ def handle_message(event):
         message = TextSendMessage(text=string)
         line_bot_api.reply_message(event.reply_token, message)
 
-    if event.message.text==cityDict:
+    if event.message.text in cityDict:
         string = weatherSearch(event.message.text)
         message = TextSendMessage(text=string)
         line_bot_api.reply_message(event.reply_token, message)
