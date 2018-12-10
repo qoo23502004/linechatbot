@@ -88,23 +88,23 @@ def food(text):
 	dinner=['牛肉丼飯','豬排丼飯','親子丼','滷味','林東芳牛肉麵','滷肉飯','排骨飯','雞腿便當','水餃','煎餃','鍋貼','蝦仁蛋炒飯','米粉羹','土魠魚羹','鍋燒意麵','握壽司','錢櫃牛肉麵','麻辣鍋']
 	aftermoontea=['鬆餅','烤土司','乳酪蛋糕','檸檬派','義大利麵','烤雞腿','炸雞塊','脆薯','洋蔥圈','起司塔']
 	latenightmeal=['鹹酥雞','香雞排','林東芳牛肉麵','鼎王','老四川','滷味','烤雞腿','麥當勞歡樂送','魷魚羹','米粉','潤餅','當歸鴨','蚵仔煎','炒花枝','肉羹','米糕','甜不辣']
-	if text="!早餐":
+	if text=="!早餐":
 		count=len(breakfirst)
 		feedback=breakfirst[random(0,count)]
 		return feedback
-	elif text="!午餐":
+	elif text=="!午餐":
 		count=len(lunch)
 		feedback=lunch[random(0,count)]
 		return feedback
-	elif text="!下午茶":
+	elif text=="!下午茶":
 		count=len(aftermoontea)
 		feedback=aftermoontea[random(0,count)]
 		return feedback
-	elif text="!晚餐":
+	elif text=="!晚餐":
 		count=len(dinner)
 		feedback=dinner[random(0,count)]
 		return feedback
-	elif text="!消夜" or text="!宵夜":
+	elif text=="!消夜" or text="!宵夜":
 		count=len(latenightmeal)
 		feedback=latenightmeal[random(0,count)]
 		return feedback
