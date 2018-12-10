@@ -90,29 +90,29 @@ def food(text):
 	latenightmeal=['鹹酥雞','香雞排','林東芳牛肉麵','鼎王','老四川','滷味','烤雞腿','麥當勞歡樂送','魷魚羹','米粉','潤餅','當歸鴨','蚵仔煎','炒花枝','肉羹','米糕','甜不辣']
 	if text=="!早餐":
 		count=len(breakfirst)
-		feedback=breakfirst[random(0,count)]
+		feedback=breakfirst[random.randint(0,len(breakfirst)-1)]
 		return feedback
 	elif text=="!午餐":
 		count=len(lunch)
-		feedback=lunch[random(0,count)]
+		feedback=lunch[random.randint(0,len(lunch)-1)]
 		return feedback
 	elif text=="!下午茶":
 		count=len(aftermoontea)
-		feedback=aftermoontea[random(0,count)]
+		feedback=aftermoontea[random.randint(0,len(aftermoontea)-1)]
 		return feedback
 	elif text=="!晚餐":
 		count=len(dinner)
-		feedback=dinner[random(0,count)]
+		feedback=dinner[random.randint(0,len(dinner)-1)]
 		return feedback
 	elif text=="!消夜" or text=="!宵夜":
 		count=len(latenightmeal)
-		feedback=latenightmeal[random(0,count)]
+		feedback=latenightmeal[random.randint(0,len(latenightmeal)-1)]
 		return feedback
-
+	
 
 
 
 if __name__ == "__main__":
-    print(weatherSearch("!嘉義縣"))
+    print(food("!午餐"))
     
 
