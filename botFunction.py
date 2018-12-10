@@ -1,6 +1,7 @@
 import requests
 import re
 import json
+import random
 from bs4 import BeautifulSoup
 
 def checkState():
@@ -80,6 +81,36 @@ def weatherSearch(Num):
 	PMfeel="體感:"+weatherData['records']['location'][cityNum]['weatherElement'][3]['time'][1]['parameter']['parameterName']
 	total=CT+"\n"+AMst+"\n"+AMstate+"\n"+AMrain+"\n"+AMMT+"\n"+AMmT+"\n"+AMfeel+"\n\n"+PMst+"\n"+PMstate+"\n"+PMrain+"\n"+PMMT+"\n"+PMmT+"\n"+PMfeel
 	return total
+
+def food(text):
+	breakfirst=['起司蛋餅','火腿蛋餅','鮪魚蛋土司','小籠包','御飯糰','火腿蛋土司','豆漿+油條','燒餅,鰻頭','培根蛋土司','薯餅','雞塊','雞腿堡','今天當神仙，別吃了啦','燻雞蛋餅','貝果']
+	lunch=['鍋燒意麵','雞腿便當','雞排便當','排骨飯','涼麵','炒麵','麥當勞','肯德基','鐵板麵','咖哩飯','義大利麵','燉飯','今天當神仙，別吃了啦']
+	dinner=['牛肉丼飯','豬排丼飯','親子丼','滷味','林東芳牛肉麵','滷肉飯','排骨飯','雞腿便當','水餃','煎餃','鍋貼','蝦仁蛋炒飯','米粉羹','土魠魚羹','鍋燒意麵','握壽司','錢櫃牛肉麵','麻辣鍋']
+	aftermoontea=['鬆餅','烤土司','乳酪蛋糕','檸檬派','義大利麵','烤雞腿','炸雞塊','脆薯','洋蔥圈','起司塔']
+	latenightmeal=['鹹酥雞','香雞排','林東芳牛肉麵','鼎王','老四川','滷味','烤雞腿','麥當勞歡樂送','魷魚羹','米粉','潤餅','當歸鴨','蚵仔煎','炒花枝','肉羹','米糕','甜不辣']
+	if text="!早餐":
+		count=len(breakfirst)
+		feedback=breakfirst[random(0,count)]
+		return feedback
+	elif text="!午餐":
+		count=len(lunch)
+		feedback=lunch[random(0,count)]
+		return feedback
+	elif text="!下午茶":
+		count=len(aftermoontea)
+		feedback=aftermoontea[random(0,count)]
+		return feedback
+	elif text="!晚餐":
+		count=len(dinner)
+		feedback=dinner[random(0,count)]
+		return feedback
+	elif text="!消夜" or text="!宵夜":
+		count=len(latenightmeal)
+		feedback=latenightmeal[random(0,count)]
+		return feedback
+
+
+
 
 if __name__ == "__main__":
     print(weatherSearch("!嘉義縣"))
