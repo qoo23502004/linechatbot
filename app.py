@@ -50,7 +50,7 @@ def handle_message(event):
 
     if event.message.text in cityDict:
         string = weatherSearch(event.message.text)
-        message = TextSendMessage(text=string)
+        message = TextSendMessage(text="你可以試試看"+string)
         line_bot_api.reply_message(event.reply_token, message)
 
     if event.message.text in feed:
