@@ -60,7 +60,7 @@ def handle_message(event):
     
     keyword=event.message.text
     keywordCut=keyword.split(' ')
-    if keywordCut[0]=="!sr" and len(keywordCut)>=2:
+    if keywordCut[0]=="!sr" or keywordCut[0]=="!SR" and len(keywordCut)>=2:
         for i in range(1,len(keywordCut)):	
             ytKeyword=ytKeyword+keywordCut[i]+" "
         content = musicSearch(ytKeyword)
