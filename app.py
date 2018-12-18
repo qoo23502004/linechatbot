@@ -40,14 +40,14 @@ def handle_message(event):
 
     ytKeyword=""
     pushAns=""
-    if event.message.text=="咬咬小北爛":
+    if event.message.text=="咬咬":
         profile = line_bot_api.get_profile(event.source.user_id)
         message = TextSendMessage(text=profile.display_name+"找我幹嘛呢?")
         line_bot_api.reply_message(event.reply_token, message)
 
     if event.message.text=="!序號":
         profile = line_bot_api.get_profile(event.source.user_id)
-        message = TextSendMessage(text="\n◎序號兌換至myVideo官網/APP「兌換儲值」輸入序號 「vv0z1」兌換使用→ \nhttps://reurl.cc/XjRx3\n"+profile.display_name+" 快點去輸入序號好爆")
+        message = TextSendMessage(text="◎序號兌換至myVideo官網/APP「兌換儲值」輸入序號 「vv0z1」兌換使用\nhttps://reurl.cc/XjRx3\n"+profile.display_name+" 快點去輸入序號好爆")
         line_bot_api.reply_message(event.reply_token, message)
     
     if event.message.text=="!狀態":
