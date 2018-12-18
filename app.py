@@ -59,9 +59,16 @@ def handle_message(event):
         message = TextSendMessage(text="真心推薦: "+string)
         line_bot_api.reply_message(event.reply_token, message)
 
-    if event.message.text=="!ID":
-                   
+    if event.message.text=="!GID":           
         message = TextSendMessage(text=event.source.group_id)
+        line_bot_api.reply_message(event.reply_token, message)
+
+    if event.message.text=="!RID":                  
+        message = TextSendMessage(text=event.source.room_id)
+        line_bot_api.reply_message(event.reply_token, message)
+
+    if event.message.text=="!UID":                  
+        message = TextSendMessage(text=event.source.user_id)
         line_bot_api.reply_message(event.reply_token, message)
 
     ans=event.message.text
