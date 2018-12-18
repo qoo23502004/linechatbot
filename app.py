@@ -40,15 +40,15 @@ def handle_message(event):
 
     ytKeyword=""
     pushAns=""
-	profile = line_bot_api.get_profile(event.source.user_id)
+	
     if event.message.text=="咬咬":
-        profile = line_bot_api.get_profile(event.source.user_id)
-        message = TextSendMessage(text=profile.display_name+"找我幹嘛呢?")
+        #profile = line_bot_api.get_profile(event.source.user_id)
+        message = TextSendMessage(text="找我幹嘛呢?")
         line_bot_api.reply_message(event.reply_token, message)
 
     if event.message.text=="!序號":
-        profile = line_bot_api.get_profile(event.source.user_id)
-        message = TextSendMessage(text="◎序號兌換至myVideo官網/APP「兌換儲值」輸入序號 「vv0z1」兌換使用\nhttps://reurl.cc/XjRx3\n"+profile.display_name+" 快點去輸入序號好爆")
+        #profile = line_bot_api.get_profile(event.source.user_id)
+        message = TextSendMessage(text="◎序號兌換至myVideo官網/APP「兌換儲值」輸入序號 「vv0z1」兌換使用\nhttps://reurl.cc/XjRx3")
         line_bot_api.reply_message(event.reply_token, message)
     
     if event.message.text=="!狀態":
@@ -57,9 +57,9 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, message)
 
     if event.message.text in cityDict:
-        profile = line_bot_api.get_profile(event.source.user_id)
+        
         string = weatherSearch(event.message.text)
-        message = TextSendMessage(text=profile.display_name+" 查詢的資料如下\n"+string)
+        message = TextSendMessage(text=string)
         line_bot_api.reply_message(event.reply_token, message)
 
     if event.message.text in feed:
@@ -84,8 +84,8 @@ def handle_message(event):
     if ansCut[0]=="!意見" and len(ansCut)>=2:
         for i in range(1,len(ansCut)):
             pushAns=pushAns+ansCut[i]+" "
-        profile = line_bot_api.get_profile(event.source.user_id)      
-        line_bot_api.push_message("C4917ea14175c364153551090ab546fd5", TextSendMessage(text="來自 "+profile.display_name+" 的訊息： "+ pushAns))
+        #profile = line_bot_api.get_profile(event.source.user_id)      
+        line_bot_api.push_message("C4917ea14175c364153551090ab546fd5", TextSendMessage(text="來自 "+event.source.user_id+" 的訊息： "+ pushAns))
         #message = TextSendMessage(text=event.source.user_id)
         #line_bot_api.reply_message(event.reply_token, message) 
     
