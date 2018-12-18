@@ -60,13 +60,13 @@ def handle_message(event):
 
     if event.message.text=="!ID":
         
-        profile = line_bot_api.get_profile(event.source.user_id)     
-        message = TextSendMessage(text=profile.display_name)
+            
+        message = TextSendMessage(text=event.source.user_id)
         line_bot_api.reply_message(event.reply_token, message)
 
-    if event.message.text=="!push":
-
-        line_bot_api.push_message( "U5bd55d60b2112ffb591908d043b7267b", TextSendMessage(text="Hello"))
+    if event.message.text=="!回答":
+        profile = line_bot_api.get_profile(event.source.user_id)
+        line_bot_api.push_message("U5bd55d60b2112ffb591908d043b7267b", TextSendMessage(text=profile.display_name))
         #message = TextSendMessage(text=event.source.user_id)
         #line_bot_api.reply_message(event.reply_token, message) 
     
