@@ -57,6 +57,11 @@ def handle_message(event):
         string = food(event.message.text)
         message = TextSendMessage(text="真心推薦: "+string)
         line_bot_api.reply_message(event.reply_token, message)
+
+    if event.message.text=="!ID":
+        profile = line_bot_api.get_profile(user_id)
+        message = TextSendMessage(text=profile.display_name)
+        line_bot_api.reply_message(event.reply_token, message)
     
     keyword=event.message.text
     keywordCut=keyword.split(' ')
