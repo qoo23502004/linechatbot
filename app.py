@@ -66,11 +66,11 @@ def handle_message(event):
 
     ans=event.message.text
     ansCut=ans.split(' ')
-    if ansCut[0]=="!push" and len(ansCut)>=2:
+    if ansCut[0]=="!意見" and len(ansCut)>=2:
         for i in range(1,len(ansCut)):
             pushAns=pushAns+ansCut[i]+" "
         profile = line_bot_api.get_profile(event.source.user_id)      
-        line_bot_api.push_message("Ue485a9bf0f3761e976869456dc0424c9", TextSendMessage(text="來自 "+profile.display_name+" 的訊息： "+ pushAns))
+        line_bot_api.push_message("R7f942f27f4bfffc48e2ce010cc807361", TextSendMessage(text="來自 "+profile.display_name+" 的訊息： "+ pushAns))
         #message = TextSendMessage(text=event.source.user_id)
         #line_bot_api.reply_message(event.reply_token, message) 
     
