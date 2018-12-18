@@ -60,7 +60,7 @@ def handle_message(event):
 
     if event.message.text=="!ID":
         profile = line_bot_api.get_profile(user_id)
-        message = TextSendMessage(text=profile.display_name)
+        message = TextSendMessage(text=profile)
         line_bot_api.reply_message(event.reply_token, message)
     
     keyword=event.message.text
