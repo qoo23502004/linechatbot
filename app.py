@@ -39,6 +39,7 @@ def handle_message(event):
     feed=["!早餐","!午餐","!下午茶","!晚餐","!宵夜","!消夜"]
 
     ytKeyword=""
+    pushAns=""
     if event.message.text=="!HI":
         message = TextSendMessage(text="Hi^^")
         line_bot_api.reply_message(event.reply_token, message)
