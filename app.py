@@ -61,7 +61,7 @@ def handle_message(event):
 
     if event.message.text=="!ID":
                    
-        message = TextSendMessage(text=event.source.room_id)
+        message = TextSendMessage(text=event.source.group_id)
         line_bot_api.reply_message(event.reply_token, message)
 
     ans=event.message.text
