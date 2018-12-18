@@ -65,7 +65,7 @@ def handle_message(event):
 
     ans=event.message.text
     ansCut=ans.split(' ')
-    if ans[0]=="!push" and len(ansCut)>=2:
+    if ansCut[0]=="!push" and len(ansCut)>=2:
         for i in range(1,len(ansCut)):
             pushAns=pushAns+ansCut[i]
         profile = line_bot_api.get_profile(event.source.user_id)      
