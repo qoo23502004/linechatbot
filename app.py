@@ -40,8 +40,9 @@ def handle_message(event):
 
     ytKeyword=""
     pushAns=""
-    if event.message.text=="!HI":
-        message = TextSendMessage(text="Hi^^")
+    if event.message.text=="咬咬":
+        profile = line_bot_api.get_profile(event.source.user_id)
+        message = TextSendMessage(text=profile.display_name+"找我幹嘛呢?")
         line_bot_api.reply_message(event.reply_token, message)
     
     if event.message.text=="!狀態":
