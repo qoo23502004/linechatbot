@@ -71,7 +71,7 @@ def weatherSearch(Num):
 	AMrain="降雨機率："+weatherData['records']['location'][cityNum]['weatherElement'][1]['time'][0]['parameter']['parameterName']+"%"
 	AMMT="最高溫度："+weatherData['records']['location'][cityNum]['weatherElement'][4]['time'][0]['parameter']['parameterName']
 	AMmT="最低溫度："+weatherData['records']['location'][cityNum]['weatherElement'][2]['time'][0]['parameter']['parameterName']
-	AMfeel="體感:"+weatherData['records']['location'][cityNum]['weatherElement'][3]['time'][0]['parameter']['parameterName']
+	AMfeel="體感："+weatherData['records']['location'][cityNum]['weatherElement'][3]['time'][0]['parameter']['parameterName']
 	
 	total=CT+"\n"+AMstate+"\n"+AMrain+"\n"+AMmT+"\n"+AMMT+"\n"+AMfeel+"\n"+"更新時間："+AMst	
 	return total

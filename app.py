@@ -70,7 +70,7 @@ def handle_message(event):
         for i in range(1,len(ansCut)):
             pushAns=pushAns+ansCut[i]+" "
         profile = line_bot_api.get_profile(event.source.user_id)      
-        line_bot_api.push_message("U5bd55d60b2112ffb591908d043b7267b", TextSendMessage(text="來自 "+profile.display_name+"的訊息:"+ pushAns))
+        line_bot_api.push_message("Ue485a9bf0f3761e976869456dc0424c9", TextSendMessage(text="來自 "+profile.display_name+" 的訊息： "+ pushAns))
         #message = TextSendMessage(text=event.source.user_id)
         #line_bot_api.reply_message(event.reply_token, message) 
     
