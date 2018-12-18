@@ -59,6 +59,7 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, message)
 
     if event.message.text=="!ID":
+        user_id=event.source.user_id
         profile = line_bot_api.get_profile(user_id)
         message = TextSendMessage(text=profile)
         line_bot_api.reply_message(event.reply_token, message)
