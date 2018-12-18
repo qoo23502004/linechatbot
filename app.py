@@ -50,8 +50,9 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, message)
 
     if event.message.text in cityDict:
+        profile = line_bot_api.get_profile(event.source.user_id)
         string = weatherSearch(event.message.text)
-        message = TextSendMessage(text=string)
+        message = TextSendMessage(text=profile.display_name+" 查詢的資料如下\n"+string)
         line_bot_api.reply_message(event.reply_token, message)
 
     if event.message.text in feed:
