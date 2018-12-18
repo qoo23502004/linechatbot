@@ -63,6 +63,12 @@ def handle_message(event):
         #profile = line_bot_api.get_profile(event.source.user_id)
         message = TextSendMessage(text=event.source.user_id)
         line_bot_api.reply_message(event.reply_token, message)
+
+    if event.message.text=="!push":
+
+        line_bot_api.push_message( "Uca6fa80946fc93a273d36351fbe92a65", TextSendMessage(text="Hello"))
+        #message = TextSendMessage(text=event.source.user_id)
+        #line_bot_api.reply_message(event.reply_token, message) 
     
     keyword=event.message.text
     keywordCut=keyword.split(' ')
