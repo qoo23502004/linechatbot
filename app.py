@@ -33,7 +33,10 @@ def callback():
     return 'OK'
 
 
-@handler.add(JoinEvent, message=TextMessage)
+@handler.add(JoinEvent)
+
+# 處理訊息
+@handler.add(MessageEvent, message=TextMessage)
 def handle_join(event):
     profile = line_bot_api.get_group_member_profile(event.source.group_id,event.source.user_id)
     if event.joined.members.userId==event.source.user_id:
@@ -42,8 +45,6 @@ def handle_join(event):
 
 
 
-# 處理訊息
-@handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     cityDict={"!嘉義縣":0,"!新北市":1,"!嘉義市":2,"!新竹縣":3,"!新竹市":4,"!台北市":5,"!台南市":6,"!宜蘭縣":7,"!苗栗縣":8,"!雲林縣":9,"!花蓮縣":10,"!台中市":11,"!台東縣":12,"!桃園市":13,"!南投縣":14,"!高雄市":15,"!金門縣":16,"!屏東縣":17,"!基隆市":18,"!澎湖縣":19,"!彰化縣":20,"!連江縣":21}
     feed=["!早餐","!午餐","!下午茶","!晚餐","!宵夜","!消夜"]
