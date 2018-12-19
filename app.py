@@ -31,11 +31,11 @@ def callback():
         abort(400)
     return 'OK'
 
-@handler.add(UnknownEvent)
-def handle_join(event):
-    newcoming_text = "謝謝邀請我這個機器來至此群組！！我會盡力為大家服務的～"
+#@handler.add(UnknownEvent)
+#def handle_join(event):
+#    newcoming_text = "謝謝邀請我這個機器來至此群組！！我會盡力為大家服務的～"
 
-    line_bot_api.reply_message(event.reply_token, TextMessage(text=event.type))
+#    line_bot_api.reply_message(event.reply_token, TextMessage(text=event.type))
     #if event.source.type=="memberJoined":
     #    line_bot_api.reply_message(event.reply_token, TextSendMessage(text="Joined this "))
 
