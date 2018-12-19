@@ -84,7 +84,7 @@ def handle_message(event):
     if ansCut[0]=="!意見" and len(ansCut)>=2:
         for i in range(1,len(ansCut)):
             pushAns=pushAns+ansCut[i]+" "
-        profile = line_bot_api.get_group_member_profile(event.source.user_id)      
+        profile = line_bot_api.get_group_member_profile(event.source.group_id,event.source.user_id)      
         line_bot_api.push_message("C4917ea14175c364153551090ab546fd5", TextSendMessage(text="來自 "+profile.display_name+" 的訊息： "+ pushAns))
         #message = TextSendMessage(text=event.source.user_id)
         #line_bot_api.reply_message(event.reply_token, message) 
