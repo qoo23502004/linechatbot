@@ -32,8 +32,8 @@ def callback():
         abort(400)
     return 'OK'
 
-@handler.add(JoinEvent)
-def handle_memberJoined(event):
+@handler.add(MemberJoinedEvent)
+def handle_Joined(event):
     newcoming_text = "Welcome^___^"
     line_bot_api.reply_message(event.reply_token, TextMessage(text=newcoming_text))
 
