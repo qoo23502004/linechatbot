@@ -41,9 +41,9 @@ def handle_message(event):
     ytKeyword=""
     pushAns=""
 	
-    if event.message.text=="咬咬":
-        #profile = line_bot_api.get_profile(event.source.user_id)
-        message = TextSendMessage(text="找我幹嘛呢?")
+    if event.message.text=="咬咬我愛你" or event.message.text=="咬咬我愛妳" :
+        profile = line_bot_api.get_group_member_profile(event.source.group_id,event.source.user_id)
+        message = TextSendMessage(text="我也愛你唷 "+profile.display_name)
         line_bot_api.reply_message(event.reply_token, message)
 
     if event.message.text=="!序號":
@@ -59,7 +59,7 @@ def handle_message(event):
     if event.message.text in cityDict:
         profile = line_bot_api.get_group_member_profile(event.source.group_id,event.source.user_id)       
         string = weatherSearch(event.message.text)
-        message = TextSendMessage(text="To "+profile.display_name+"\n"+string)
+        message = TextSendMessage(text=profile.display_name+" 所查詢的天氣資料如下：\n"+string)
         line_bot_api.reply_message(event.reply_token, message)
 
     if event.message.text in food:
