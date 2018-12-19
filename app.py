@@ -31,10 +31,10 @@ def callback():
         abort(400)
     return 'OK'
 
-@handler.add(MemberJoinEvent)
-def handle_join(event):
-    newcoming_text = "Welcome^___^"
-    line_bot_api.reply_message(event.reply_token, TextMessage(text=newcoming_text))
+#@handler.add(MemberJoinEvent)
+#def handle_join(event):
+#    newcoming_text = "Welcome^___^"
+#    line_bot_api.reply_message(event.reply_token, TextMessage(text=newcoming_text))
 
 # 處理訊息
 @handler.add(MessageEvent, message=TextMessage)
