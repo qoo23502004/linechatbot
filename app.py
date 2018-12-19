@@ -32,9 +32,9 @@ def callback():
         abort(400)
     return 'OK'
 
-@handler.add(JoinEvent)
+@handler.add(MemberJoinEvent)
 def handle_join(event):
-    newcoming_text = "謝謝邀請我這個機器來至此群組！！我會盡力為大家服務的～"
+    newcoming_text = "Welcome^___^"
     line_bot_api.reply_message(event.reply_token, TextMessage(text=newcoming_text))
 
 # 處理訊息
