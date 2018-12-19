@@ -35,9 +35,10 @@ def callback():
 
 @handler.add(JoinEvent, message=TextMessage)
 def handle_join(event):
-    wplog.logger.info("Got join event")
-    message = TextSendMessage(text="Welcome!")
-    line_bot_api.reply_message(event.reply_token, message)
+    profile = line_bot_api.get_group_member_profile(event.source.group_id,event.source.user_id)
+    if event.joined.members.userId==event.source.user_id:
+        message = TextSendMessage(text="Welcome!")
+        line_bot_api.reply_message(event.reply_token, message)
 
 
 
