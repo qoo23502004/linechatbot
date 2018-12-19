@@ -31,7 +31,7 @@ def callback():
         abort(400)
     return 'OK'
 
-@handler.add(JoinEvent)
+@handler.add(UnknownEvent)
 def handle_join(event):
     newcoming_text = "謝謝邀請我這個機器來至此群組！！我會盡力為大家服務的～"
 
