@@ -32,6 +32,16 @@ def callback():
         abort(400)
     return 'OK'
 
+
+@handler.add(JoinEvent)
+def handle_join(event):
+    wplog.logger.info("Got join event")
+    line_bot_api.reply_message(
+        event.reply_token,
+        TextSendMessage(text='Joined this ' + event.source.type))
+
+
+
 # 處理訊息
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
