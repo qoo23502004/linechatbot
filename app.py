@@ -9,7 +9,6 @@ from linebot.exceptions import (
 )
 from linebot.models import *
 import time
-import linebot-api-SDK-python
 app = Flask(__name__)
 
 # Channel Access Token
@@ -33,7 +32,7 @@ def callback():
     return 'OK'
 
 @handler.add(MemberJoinEvent)
-def handle_Joined(event):
+def handle_join(event):
     newcoming_text = "Welcome^___^"
     line_bot_api.reply_message(event.reply_token, TextMessage(text=newcoming_text))
 
