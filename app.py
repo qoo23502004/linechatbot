@@ -33,7 +33,7 @@ def callback():
 
 @handler.add(JoinEvent)
 def handle_join(event):
-    if event.source.type=="memberJoined"
+    if event.source.type=="memberJoined":
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text="Joined this "))
 
 # 處理訊息
