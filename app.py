@@ -102,7 +102,8 @@ def handle_message(event):
         for i in range(1,len(keywordCut)):	
             ytKeyword=ytKeyword+keywordCut[i]+" "
         content = musicSearch(ytKeyword)
-        message = TextSendMessage(text="https://www.youtube.com/watch?v="+content)
+        profile = line_bot_api.get_group_member_profile(event.source.group_id,event.source.user_id)
+        message = TextSendMessage(text=profile.display_name+" 查詢的影片在這 https://www.youtube.com/watch?v="+content)
         line_bot_api.reply_message(event.reply_token, message)
 
 
