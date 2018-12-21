@@ -44,7 +44,7 @@ def callback():
 def handle_message(event):
     cityDict={"!嘉義縣":0,"!新北市":1,"!嘉義市":2,"!新竹縣":3,"!新竹市":4,"!台北市":5,"!台南市":6,"!宜蘭縣":7,"!苗栗縣":8,"!雲林縣":9,"!花蓮縣":10,"!台中市":11,"!台東縣":12,"!桃園市":13,"!南投縣":14,"!高雄市":15,"!金門縣":16,"!屏東縣":17,"!基隆市":18,"!澎湖縣":19,"!彰化縣":20,"!連江縣":21}
     feed=["!早餐","!午餐","!下午茶","!晚餐","!宵夜","!消夜"]
-    idTag=["U5bd55d60b2112ffb591908d043b7267b"]
+    adminID=["U5bd55d60b2112ffb591908d043b7267b","Ua949af5635ed28ba3abbd377b0f276b1","Ue01de340eb97da851243467b6ba179f2","U600f407b05672dd82a6fb54ec5f18270"]
     ytKeyword=""
     pushAns=""
 	
@@ -86,7 +86,7 @@ def handle_message(event):
         message = TextSendMessage(text=event.source.user_id)
         line_bot_api.reply_message(event.reply_token, message)
 
-    if event.message.text=="!test" and event.source.user_id in idTag:           
+    if event.message.text=="!test" and event.source.user_id in adminID:           
         message = TextSendMessage(text="測試權限成功")
         line_bot_api.reply_message(event.reply_token, message)
 
