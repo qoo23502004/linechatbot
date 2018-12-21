@@ -86,6 +86,11 @@ def handle_message(event):
         message = TextSendMessage(text=event.source.user_id)
         line_bot_api.reply_message(event.reply_token, message)
 
+    if event.message.text=="!test" and event.source.user_id=="U5bd55d60b2112ffb591908d043b7267b":           
+        message = TextSendMessage(text="測試權限成功")
+        line_bot_api.reply_message(event.reply_token, message)
+
+
     ans=event.message.text
     ansCut=ans.split(' ')
     if ansCut[0]=="!機器人" and len(ansCut)>=2:
