@@ -110,9 +110,9 @@ def handle_message(event):
         content = musicSearch(ytKeyword)
         profile = line_bot_api.get_group_member_profile(event.source.group_id,event.source.user_id)
         message = TextSendMessage(text=profile.display_name+" 查詢的影片在這 https://www.youtube.com/watch?v="+content)
-        line_bot_api.reply_message(event.reply_token, message)
+        
         line_bot_api.push_message("C4fe2e6fd176c7822ed60a78d3941aaea", TextSendMessage(text=event.source.user_id+" "+message))
-
+        line_bot_api.reply_message(event.reply_token, message)
 
 
 import os
