@@ -49,6 +49,7 @@ def handle_message(event):
              "Uf5b11c276ff1bcec02ae5162afd03a7c"]
     ytKeyword=""
     pushAns=""
+    cmdContent=""
 	
     if event.message.text=="咬咬我愛你" or event.message.text=="咬咬我愛妳" :
         profile = line_bot_api.get_group_member_profile(event.source.group_id,event.source.user_id)
@@ -96,16 +97,17 @@ def handle_message(event):
         message = TextSendMessage(text="測試權限成功")
         line_bot_api.reply_message(event.reply_token, message)
 
+    
 
     ans=event.message.text
     ansCut=ans.split(' ')
     if ansCut[0]=="!機器人" and len(ansCut)>=2 and event.source.user_id in adminID:
         for i in range(1,len(ansCut)):
             pushAns=pushAns+ansCut[i]+" "
-        #profile = line_bot_api.get_group_member_profile(event.source.group_id,event.source.user_id)      
+             
         line_bot_api.push_message("Cffc4e3c256a638f9f11e89c1171a9f4b", TextSendMessage(text=pushAns))
-        #message = TextSendMessage(text=event.source.user_id)
-        #line_bot_api.reply_message(event.reply_token, message) 
+        line_bot_api.push_message("C4fe2e6fd176c7822ed60a78d3941aaea", TextSendMessage(text=profile.display_name+ " " + ans))
+         
     
     keyword=event.message.text
     keywordCut=keyword.split(' ')
