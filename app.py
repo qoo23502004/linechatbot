@@ -106,7 +106,7 @@ def handle_message(event):
             pushAns=pushAns+ansCut[i]+" "
              
         line_bot_api.push_message("Cffc4e3c256a638f9f11e89c1171a9f4b", TextSendMessage(text=pushAns))
-        line_bot_api.push_message("C4fe2e6fd176c7822ed60a78d3941aaea", TextSendMessage(text=profile.display_name+ " " + ans))
+        line_bot_api.push_message("C4fe2e6fd176c7822ed60a78d3941aaea", TextSendMessage(text=profile.display_name+ " " + pushAns))
          
     
     keyword=event.message.text
