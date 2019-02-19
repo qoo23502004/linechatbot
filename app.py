@@ -4,7 +4,7 @@ from botFunction import *
 from linebot import (
     LineBotApi
 )
-from webhook import WebhookHandler
+from webhook import *
 from linebot.exceptions import (
     InvalidSignatureError
 )
