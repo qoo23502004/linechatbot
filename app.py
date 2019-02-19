@@ -46,7 +46,7 @@ def handle_join(event):
     if event.type=="memberLeft":
         left_text = "嗚嗚嗚，我們懷念他QQ"
         #line_bot_api.reply_message(event.reply_token, TextMessage(text=left_text))
-        line_bot_api.push_message("C4fe2e6fd176c7822ed60a78d3941aaea", TextSendMessage(text=left_text)
+        line_bot_api.push_message("C4fe2e6fd176c7822ed60a78d3941aaea", TextSendMessage(text=left_text))
     
 
 # 處理訊息
