@@ -8,7 +8,7 @@ from linebot.exceptions import (
     InvalidSignatureError
 )
 from linebot.models import (
-    actions, __init__, response, sources, base, flex_message, messages, rich_menu, template, error, imagemap, send_messages
+    actions, __init__, responses, sources, base, flex_message, messages, rich_menu, template, error, imagemap, send_messages
 )
 from events import *
 import time
