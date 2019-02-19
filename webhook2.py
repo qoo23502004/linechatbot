@@ -33,6 +33,7 @@ from events import (
     BeaconEvent,
     AccountLinkEvent,
     MemberJoinEvent,
+    MemberLeaveEvent,
 )
 from linebot.utils import LOGGER, PY3, safe_compare_digest
 
@@ -147,6 +148,8 @@ class WebhookParser(object):
                 events.append(AccountLinkEvent.new_from_json_dict(event))
             elif event_type == 'memberJoined':
                 events.append(MemberJoinEvent.new_from_json_dict(event))
+            elif event_type == 'memberLeft':
+                events.append(MemberLeaveEvent.new_from_json_dict(event))
             else:
                 LOGGER.warn('Unknown event type. type=' + event_type)
 
