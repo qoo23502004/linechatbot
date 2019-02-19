@@ -40,13 +40,14 @@ def callback():
 def handle_memberJoined(event):
     global tmpToken
     tmpToken = event.reply_token
-    line_bot_api.reply_message(event.reply_token, TextMessage(text="歡迎新加入的觀眾，請記得去記事本簽到唷><"))
+    line_bot_api.reply_message(event.reply_token, TextMessage(text="歡迎新加入的觀眾，請記得去記事本簽到唷>< "+tmpToken))
 
 @handler.add(MemberLeaveEvent)
 def handle_memberLeft(event):
     #line_bot_api.reply_message(event.reply_token, TextMessage(text=event.type))
     global tmpToken
-    line_bot_api.reply_message(tmpToken, TextSendMessage(text=event.type))
+    #line_bot_api.reply_message(tmpToken, TextSendMessage(text=event.type))
+    line_bot_api.push_message("C4fe2e6fd176c7822ed60a78d3941aaea", TextSendMessage(text=tmpToken))
     
 
 # 處理訊息
