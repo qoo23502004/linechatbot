@@ -207,7 +207,7 @@ class MemberLeaveEvent(Event):
     Event object for when your account leaves a group.
     """
 
-    def __init__(self, timestamp=None, source=None, **kwargs):
+    def __init__(self, timestamp=None, source=None, reply_token=None, **kwargs):
         """__init__ method.
 
         :param long timestamp: Time of the event in milliseconds
@@ -221,17 +221,7 @@ class MemberLeaveEvent(Event):
 
         self.type = 'memberLeft'
         self.reply_token = reply_token
-        self.message = self.get_or_new_from_json_dict_with_types(
-            message, {
-                'text': TextMessage,
-                'image': ImageMessage,
-                'video': VideoMessage,
-                'audio': AudioMessage,
-                'location': LocationMessage,
-                'sticker': StickerMessage,
-                'file': FileMessage
-            }
-        )
+        
 
 class LeaveEvent(Event):
     """Webhook LeaveEvent.
