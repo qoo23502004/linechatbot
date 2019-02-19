@@ -56,9 +56,13 @@ def handle_message(event):
         message = TextSendMessage(text="我也愛你唷 "+profile.display_name)
         line_bot_api.reply_message(event.reply_token, message)
 
-    if event.message.text=="!序號":
+    if event.message.text=="!pic":
         #profile = line_bot_api.get_profile(event.source.user_id)
-        message = TextSendMessage(text="◎序號兌換至myVideo官網/APP「兌換儲值」輸入序號 「vv0z1」兌換使用\nhttps://reurl.cc/XjRx3")
+        message = ImageSendMessage(
+        original_content_url='http://personal.psu.edu/xqz5228/jpg.jpg',
+        preview_image_url='http://personal.psu.edu/xqz5228/jpg.jpg'
+        )   
+        #message = TextSendMessage(text="◎序號兌換至myVideo官網/APP「兌換儲值」輸入序號 「vv0z1」兌換使用\nhttps://reurl.cc/XjRx3")
         line_bot_api.reply_message(event.reply_token, message)
     
     if event.message.text=="!表單":
