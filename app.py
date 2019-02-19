@@ -38,14 +38,11 @@ def callback():
 
 @handler.add(MemberJoinEvent)
 def handle_join(event):
+    line_bot_api.reply_message(event.reply_token, TextMessage(text="歡迎新加入的觀眾，請記得去記事本簽到唷><"))
 
-    #newcoming_text=""
-    if event.type=="memberJoined":
-        #newcoming_text = "歡迎新加入的觀眾，請記得去記事本簽到唷><"
-        line_bot_api.reply_message(event.reply_token, TextMessage(text="歡迎新加入的觀眾，請記得去記事本簽到唷><"))
-    if event.type=="memberLeft":
-        #left_text = "嗚嗚嗚，我們懷念他QQ"
-        line_bot_api.reply_message(event.reply_token, TextMessage(text="嗚嗚嗚，我們懷念他QQ"))
+@handler.add(MemberLeaveEvent)
+def handle_left(event):
+    line_bot_api.reply_message(event.reply_token, TextMessage(text="嗚嗚嗚，我們懷念他QQ"))
         #line_bot_api.push_message("C4fe2e6fd176c7822ed60a78d3941aaea", TextSendMessage(text=left_text))
     
 
