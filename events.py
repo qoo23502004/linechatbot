@@ -196,7 +196,7 @@ class MemberJoinEvent(Event):
             timestamp=timestamp, source=source, **kwargs
         )
 
-        self.type = 'memberjoin'
+        self.type = 'memberjoined'
         self.reply_token = reply_token
 
 class LeaveEvent(Event):
