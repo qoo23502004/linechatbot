@@ -22,7 +22,7 @@ import hmac
 import inspect
 import json
 
-from .exceptions import InvalidSignatureError
+from linebot.exceptions import InvalidSignatureError
 from events import (
     MessageEvent,
     FollowEvent,
