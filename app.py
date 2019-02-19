@@ -11,6 +11,7 @@ from linebot.models import (
     actions, __init__, responses, sources, base, flex_message, messages, rich_menu, template, error, imagemap, send_messages
 )
 from events import *
+from linebot.models.send_messages import *
 import time
 app = Flask(__name__)
 
