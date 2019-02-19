@@ -10,6 +10,7 @@ from linebot.exceptions import (
 from linebot.models import (
     actions, base, error, flex_message, imagemap, messages, responses, rich_menu, send_message, sources, template
 )
+import events
 import time
 app = Flask(__name__)
 
