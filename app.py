@@ -43,6 +43,7 @@ def handle_memberJoined(event):
 @handler.add(MemberLeaveEvent)
 def handle_memberLeft(event):
     #line_bot_api.reply_message(event.reply_token, TextMessage(text=event.type))
+    time.sleep(1)
     line_bot_api.reply_message(event.reply_token, TextSendMessage(text=event.type))
     
 
