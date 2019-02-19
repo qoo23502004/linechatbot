@@ -34,7 +34,7 @@ from events import (
     AccountLinkEvent,
     MemberJoinEvent,
 )
-from .utils import LOGGER, PY3, safe_compare_digest
+from linebot.utils import LOGGER, PY3, safe_compare_digest
 
 
 if hasattr(hmac, "compare_digest"):
