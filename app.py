@@ -38,9 +38,7 @@ def callback():
 
 @handler.add(MemberJoinEvent)
 def handle_join(event):
-    
-    profile = line_bot_api.get_group_member_profile(event.source.group_id,event.source.user_id)
-    newcoming_text = "歡迎 "+ profile.display_name +"，請記得去記事本簽到唷><"
+    newcoming_text = "歡迎新加入的觀眾，請記得去記事本簽到唷><"
     line_bot_api.reply_message(event.reply_token, TextMessage(text=newcoming_text))
     
 
