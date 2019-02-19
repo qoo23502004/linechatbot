@@ -200,21 +200,19 @@ class MemberJoinEvent(Event):
         self.reply_token = reply_token
 
 class MemberLeaveEvent(Event):
-    """Webhook JoinEvent.
+    """Webhook LeaveEvent.
 
-    https://devdocs.line.me/en/#join-event
+    https://devdocs.line.me/en/#leave-event
 
-    Event object for when your account joins a group or talk room.
-    You can reply to join events.
+    Event object for when your account leaves a group.
     """
 
-    def __init__(self, timestamp=None, source=None, reply_token=None, **kwargs):
+    def __init__(self, timestamp=None, source=None, **kwargs):
         """__init__ method.
 
         :param long timestamp: Time of the event in milliseconds
         :param source: Source object
         :type source: T <= :py:class:`linebot.models.sources.Source`
-        :param str reply_token: Reply token
         :param kwargs:
         """
         super(MemberLeaveEvent, self).__init__(
@@ -223,6 +221,17 @@ class MemberLeaveEvent(Event):
 
         self.type = 'memberLeft'
         self.reply_token = reply_token
+        self.message = self.get_or_new_from_json_dict_with_types(
+            message, {
+                'text': TextMessage,
+                'image': ImageMessage,
+                'video': VideoMessage,
+                'audio': AudioMessage,
+                'location': LocationMessage,
+                'sticker': StickerMessage,
+                'file': FileMessage
+            }
+        )
 
 class LeaveEvent(Event):
     """Webhook LeaveEvent.
