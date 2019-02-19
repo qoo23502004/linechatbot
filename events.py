@@ -207,7 +207,7 @@ class MemberLeaveEvent(Event):
     Event object for when your account leaves a group.
     """
 
-    def __init__(self, timestamp=None, source=None, reply_token=None, **kwargs):
+    def __init__(self, timestamp=None, source=None, **kwargs):
         """__init__ method.
 
         :param long timestamp: Time of the event in milliseconds
@@ -220,7 +220,6 @@ class MemberLeaveEvent(Event):
         )
 
         self.type = 'memberLeft'
-        self.reply_token = reply_token
         
 
 class LeaveEvent(Event):
