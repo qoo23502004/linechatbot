@@ -213,6 +213,7 @@ class MemberLeaveEvent(Event):
         :param long timestamp: Time of the event in milliseconds
         :param source: Source object
         :type source: T <= :py:class:`linebot.models.sources.Source`
+        :param str reply_token: Reply token
         :param kwargs:
         """
         super(MemberLeaveEvent, self).__init__(
