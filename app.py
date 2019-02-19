@@ -15,7 +15,7 @@ from events import *
 from linebot.models.send_messages import *
 import time
 app = Flask(__name__)
-
+tmpToken=""
 # Channel Access Token
 line_bot_api = LineBotApi('09mdileCjp5VlcpNG1gv+3gZ2tBa0tcBGNbzQEwPcZbVYqfTCXPkbuebN7In2nPC7adVZKiHKJHfvO5ZmwjBBSXW/4gvzOuZzbGfeAP0fqGtJxM3j+VFX6Ac2L8g/N3RyQJ2qusyx5s0nkRfPQHozQdB04t89/1O/w1cDnyilFU=')
 # Channel Secret
@@ -38,13 +38,15 @@ def callback():
 
 @handler.add(MemberJoinEvent)
 def handle_memberJoined(event):
+    global tmpToken
+    tmpToken = event.reply_token
     line_bot_api.reply_message(event.reply_token, TextMessage(text="歡迎新加入的觀眾，請記得去記事本簽到唷><"))
 
 @handler.add(MemberLeaveEvent)
 def handle_memberLeft(event):
     #line_bot_api.reply_message(event.reply_token, TextMessage(text=event.type))
-    time.sleep(1)
-    line_bot_api.reply_message(event.reply_token, TextSendMessage(text=event.type))
+    global tmpToken
+    line_bot_api.reply_message(tmpToken, TextSendMessage(text=event.type))
     
 
 # 處理訊息
