@@ -41,8 +41,8 @@ def handle_memberJoined(event):
     #global tmpToken
     #tmpToken = event.reply_token
     #newMember = line_bot_api.get_profile(event.source.user_id)
-    profile = line_bot_api.get_group_member_profile(event.source.group_id,event.source.user_id)
-    message=TextMessage(text="歡迎新觀眾的加入^^喵嗚，請記得去記事本簽到唷><"+profile.display_name)
+    #profile = line_bot_api.get_group_member_profile(event.source.group_id,event.source.user_id)
+    message=TextMessage(text="歡迎新觀眾的加入^^喵嗚，請記得去記事本簽到唷><")
     line_bot_api.reply_message(event.reply_token, message)
 
 #@handler.add(MemberLeaveEvent)
