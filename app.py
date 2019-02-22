@@ -40,8 +40,9 @@ def callback():
 def handle_memberJoined(event):
     #global tmpToken
     #tmpToken = event.reply_token
-    newMember = line_bot_api.get_profile(event.source.user_id)
-    welcomeMessage="歡迎 "+newMember.display_name+" 的加入^^喵嗚"+"，請記得去記事本簽到唷><"
+    #newMember = line_bot_api.get_profile(event.source.user_id)
+    profile = line_bot_api.get_group_member_profile(event.source.group_id,event.source.user_id)
+    welcomeMessage="歡迎 "+profile.display_name+" 的加入^^喵嗚"+"，請記得去記事本簽到唷><"
     line_bot_api.reply_message(event.reply_token, TextMessage(text=welcomeMessage))
 
 #@handler.add(MemberLeaveEvent)
