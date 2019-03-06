@@ -76,10 +76,12 @@ def handle_message(event):
         message = ImageSendMessage(
         original_content_url='https://i.imgur.com/SONmgfV.gif',
         preview_image_url='https://i.imgur.com/SONmgfV.gif'
-        )   
+        )
+        textMessage = TextSendMessage(text="testMessage+Picture")
         #message = TextSendMessage(text="◎序號兌換至myVideo官網/APP「兌換儲值」輸入序號 「vv0z1」兌換使用\nhttps://reurl.cc/XjRx3")
         line_bot_api.reply_message(event.reply_token, message)
-    
+        line_bot_api.reply_message(event.reply_token, textMessage)
+
     if event.message.text=="!表單":
         message = TextSendMessage(text="請大家幫忙填一下VV的週邊意願調查\nhttps://goo.gl/vwxMG3")
         line_bot_api.reply_message(event.reply_token, message)
