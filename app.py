@@ -75,12 +75,12 @@ def handle_message(event):
     if event.message.text=="!pic":
         #profile = line_bot_api.get_profile(event.source.user_id)
         message = ImageSendMessage(
-        original_content_url='https://i.imgur.com/SONmgfV.gif',
-        preview_image_url='https://i.imgur.com/SONmgfV.gif'
+        original_content_url='https://i.imgur.com/NhqT8yT.jpg',
+        preview_image_url='https://i.imgur.com/NhqT8yT.jpg'
         )
-        #textMessage = TextSendMessage(text="testMessage+Picture")
+        textMessage = TextSendMessage(text="testMessage")
         #message = TextSendMessage(text="◎序號兌換至myVideo官網/APP「兌換儲值」輸入序號 「vv0z1」兌換使用\nhttps://reurl.cc/XjRx3")
-        line_bot_api.reply_message(event.reply_token, message)
+        line_bot_api.reply_message(event.reply_token, textMessage+message)
         #line_bot_api.reply_message(event.reply_token, textMessage)
 
     if event.message.text=="!表單":
