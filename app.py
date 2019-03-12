@@ -63,15 +63,15 @@ def handle_memberJoined(event):
 
 @hanlder2.add(MessageEvent, message=TextMessage)   
 def handle2_message(event):
-    if event.message.text=="!GID":           
+    if event.message.text=="GID":           
         message = TextSendMessage(text=event.source.group_id)
         line_bot_api2.reply_message(event.reply_token, message)
 
-    if event.message.text=="!RID":                  
+    if event.message.text=="RID":                  
         message = TextSendMessage(text=event.source.room_id)
         line_bot_api2.reply_message(event.reply_token, message)
 
-    if event.message.text=="!UID":                  
+    if event.message.text=="UID":                  
         message = TextSendMessage(text=event.source.user_id)
         line_bot_api2.reply_message(event.reply_token, message)
 
