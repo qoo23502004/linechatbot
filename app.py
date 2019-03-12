@@ -23,9 +23,9 @@ line_bot_api = LineBotApi('09mdileCjp5VlcpNG1gv+3gZ2tBa0tcBGNbzQEwPcZbVYqfTCXPkb
 handler = WebhookHandler('994cd15223d21d1114738fa4b6111b42')
 
 # Channel Access Token
-line_bot_api2 = LineBotApi('5MtHcL/AVUfJFWgndIPwgs035d8XwKMxqYekxm/YxYZ+mlVHMmkC6E3vtZCNmMIgKZee8LW7y6dj8/W6z4SYhZtWTiiFePFaI+Jp3mfig0V81f2leJSHjL9qhYiS7NqtsBQkQ6BF6Tc0TyWrL23wBAdB04t89/1O/w1cDnyilFU=')
+#line_bot_api2 = LineBotApi('5MtHcL/AVUfJFWgndIPwgs035d8XwKMxqYekxm/YxYZ+mlVHMmkC6E3vtZCNmMIgKZee8LW7y6dj8/W6z4SYhZtWTiiFePFaI+Jp3mfig0V81f2leJSHjL9qhYiS7NqtsBQkQ6BF6Tc0TyWrL23wBAdB04t89/1O/w1cDnyilFU=')
 # Channel Secret
-handler2 = WebhookHandler('d06fdd69083728dc538bffa94a0edc89')
+#handler2 = WebhookHandler('d06fdd69083728dc538bffa94a0edc89')
 
 
 
@@ -43,19 +43,7 @@ def callback():
     except InvalidSignatureError:
         abort(400)
     return 'OK'
-@app.route("/callback2", methods=['POST'])
-def callback2():
-    # get X-Line-Signature header value
-    signature = request.headers['X-Line-Signature']
-    # get request body as text
-    body = request.get_data(as_text=True)
-    app.logger.info("Request body: " + body)
-    # handle webhook body
-    try:
-        handler2.handle(body, signature)
-    except InvalidSignatureError:
-        abort(400)
-    return 'OK'
+
 
 @handler.add(MemberJoinEvent)
 def handle_memberJoined(event):
@@ -74,19 +62,6 @@ def handle_memberJoined(event):
     #line_bot_api.reply_message(tmpToken, TextSendMessage(text=event.type))
     #line_bot_api.push_message("C4fe2e6fd176c7822ed60a78d3941aaea", TextSendMessage(text=str(tmpToken)))
 
-@hanlder2.add(MessageEvent, message=TextMessage)   
-def handle2_message(event):
-    if event.message.text=="GID":           
-        message = TextSendMessage(text=event.source.group_id)
-        line_bot_api2.reply_message(event.reply_token, message)
-
-    if event.message.text=="RID":                  
-        message = TextSendMessage(text=event.source.room_id)
-        line_bot_api2.reply_message(event.reply_token, message)
-
-    if event.message.text=="UID":                  
-        message = TextSendMessage(text=event.source.user_id)
-        line_bot_api2.reply_message(event.reply_token, message)
 
 
 # 處理訊息
