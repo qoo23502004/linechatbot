@@ -65,20 +65,7 @@ def handle_memberJoined(event):
 
 # 處理訊息
 @handler.add(MessageEvent, message=TextMessage)
-@handler2.add(MessageEvent, message=TextMessage)
-def handle2_message(event):
 
-    if event.message.text=="GID":           
-        message = TextSendMessage(text=event.source.group_id)
-        line_bot_api2.reply_message(event.reply_token, message)
-
-    if event.message.text=="RID":                  
-        message = TextSendMessage(text=event.source.room_id)
-        line_bot_api2.reply_message(event.reply_token, message)
-
-    if event.message.text=="UID":                  
-        message = TextSendMessage(text=event.source.user_id)
-        line_bot_api2.reply_message(event.reply_token, message)
 
 def handle_message(event):
     cityDict={"!嘉義縣":0,"!新北市":1,"!嘉義市":2,"!新竹縣":3,"!新竹市":4,"!台北市":5,"!台南市":6,"!宜蘭縣":7,"!苗栗縣":8,"!雲林縣":9,"!花蓮縣":10,"!台中市":11,"!台東縣":12,"!桃園市":13,"!南投縣":14,"!高雄市":15,"!金門縣":16,"!屏東縣":17,"!基隆市":18,"!澎湖縣":19,"!彰化縣":20,"!連江縣":21}
