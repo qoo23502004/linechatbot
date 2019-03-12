@@ -40,7 +40,6 @@ def callback():
     # handle webhook body
     try:
         handler.handle(body, signature)
-        handler2.handle(body, signature)
     except InvalidSignatureError:
         abort(400)
     return 'OK'
@@ -61,7 +60,21 @@ def handle_memberJoined(event):
     #tmpToken = event.reply_token
     #line_bot_api.reply_message(tmpToken, TextSendMessage(text=event.type))
     #line_bot_api.push_message("C4fe2e6fd176c7822ed60a78d3941aaea", TextSendMessage(text=str(tmpToken)))
-    
+
+@hanlder2.add(MessageEvent, message=TextMessage)   
+def handle2_message(event):
+    if event.message.text=="!GID":           
+        message = TextSendMessage(text=event.source.group_id)
+        line_bot_api2.reply_message(event.reply_token, message)
+
+    if event.message.text=="!RID":                  
+        message = TextSendMessage(text=event.source.room_id)
+        line_bot_api2.reply_message(event.reply_token, message)
+
+    if event.message.text=="!UID":                  
+        message = TextSendMessage(text=event.source.user_id)
+        line_bot_api2.reply_message(event.reply_token, message)
+
 
 # 處理訊息
 @handler.add(MessageEvent, message=TextMessage)
@@ -113,15 +126,15 @@ def handle_message(event):
 
     if event.message.text=="!GID":           
         message = TextSendMessage(text=event.source.group_id)
-        line_bot_api2.reply_message(event.reply_token, message)
+        line_bot_api.reply_message(event.reply_token, message)
 
     if event.message.text=="!RID":                  
         message = TextSendMessage(text=event.source.room_id)
-        line_bot_api2.reply_message(event.reply_token, message)
+        line_bot_api.reply_message(event.reply_token, message)
 
     if event.message.text=="!UID":                  
         message = TextSendMessage(text=event.source.user_id)
-        line_bot_api2.reply_message(event.reply_token, message)
+        line_bot_api.reply_message(event.reply_token, message)
 
     if event.message.text=="!test" and event.source.user_id in adminID:           
         message = TextSendMessage(text="測試權限成功")
