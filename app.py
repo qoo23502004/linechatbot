@@ -43,6 +43,19 @@ def callback():
     except InvalidSignatureError:
         abort(400)
     return 'OK'
+@app.route("/callback2", methods=['POST'])
+def callback2():
+    # get X-Line-Signature header value
+    signature = request.headers['X-Line-Signature']
+    # get request body as text
+    body = request.get_data(as_text=True)
+    app.logger.info("Request body: " + body)
+    # handle webhook body
+    try:
+        handler2.handle(body, signature)
+    except InvalidSignatureError:
+        abort(400)
+    return 'OK'
 
 @handler.add(MemberJoinEvent)
 def handle_memberJoined(event):
