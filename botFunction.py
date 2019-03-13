@@ -12,7 +12,7 @@ def checkState():
 
 
 def googleSearch(keyword):
-	
+	a=""
     # Google 搜尋 URL
 	google_url = 'https://www.google.com.tw/search'
 
@@ -38,7 +38,12 @@ def googleSearch(keyword):
 			#print("標題：" + i.text)
     			# 網址
 			#print("網址：" + i.get('href'))
-		final=items[0].text+" "+items[0].get('href')
+		z=items[0].get('href')
+		x=len(z)
+		for i in range(7,x):
+			a=a+z[i]
+		final=items[0].text+" "+a
+		print(final)
 		return final
 
 def musicSearch(keyword):
