@@ -75,6 +75,7 @@ def handle_message(event):
     ytKeyword=""
     pushAns=""
     cmdContent=""
+    glKeyword=""
 	
     if event.message.text=="咬咬我愛你" or event.message.text=="咬咬我愛妳" :
         profile = line_bot_api.get_group_member_profile(event.source.group_id,event.source.user_id)
@@ -155,7 +156,11 @@ def handle_message(event):
     googleKeyword=event.message.text
     googleKeywordCut=googleKeyword.split(' ')
     if googleKeywordCut[0]=="!google" and len(googleKeywordCut)>=2:
-        message = TextSendMessage(text=profile.display_name+" 查詢的資料在這唷："+googleSearch(googleKeywordCut))
+        for i in range(1,len(googleKeywordCut)):
+            glKeyword=glKeyword+googleKeywordCut[i]+" "
+        content = googleSearch(glKeyword)
+        profile = line_bot_api.get_group_member_profile(event.source.group_id,event.source.user_id)
+        message = TextSendMessage(text=profile.display_name+" 查詢的資料在這唷："+content)
         line_bot_api.reply_message(event.reply_token, message)
     
 
