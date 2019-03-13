@@ -152,6 +152,14 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, message)
 
 
+    googleKeyword=event.message.text
+    googleKeywordCut=googleKeyword.split(' ')
+    if googleKeywordCut[0]=="!google" and len(googleKeywordCut)>=2:
+        message = TextSendMessage(text=profile.display_name+" 查詢的資料在這唷："+googleSearch(googleKeywordCut))
+        line_bot_api.reply_message(event.reply_token, message)
+    
+
+
 import os
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
