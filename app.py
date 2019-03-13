@@ -159,8 +159,7 @@ def handle_message(event):
         for i in range(1,len(googleKeywordCut)):
             glKeyword=glKeyword+googleKeywordCut[i]+" "
         content = googleSearch(glKeyword)
-        profile = line_bot_api.get_group_member_profile(event.source.group_id,event.source.user_id)
-        message = TextSendMessage(text=profile.display_name+" 查詢的資料在這唷："+content)
+        message = TextSendMessage(text=content)
         line_bot_api.reply_message(event.reply_token, message)
     
 
