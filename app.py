@@ -132,7 +132,7 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, message)
 
     elif event.message.text=="!push" and event.source.user_id in adminID:
-        message = TextSendMessage(text="push message test")
+        message = TextSendMessage(text="push...message...test")
         line_bot_api.push_message("Cffc4e3c256a638f9f11e89c1171a9f4b",message)
     #C4fe2e6fd176c7822ed60a78d3941aaea
     
