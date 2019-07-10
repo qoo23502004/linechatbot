@@ -137,7 +137,7 @@ def handle_message(event):
         for i in range(1,len(ansCut)):
             pushAns=pushAns+ansCut[i]+" "    
         line_bot_api.push_message("Cffc4e3c256a638f9f11e89c1171a9f4b", TextSendMessage(text=pushAns))
-        break
+        time.sleep(1)
          
     
 #    keyword=event.message.text
