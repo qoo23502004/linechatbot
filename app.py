@@ -138,7 +138,7 @@ def handle_message(event):
         line_bot_api.push_message("C4fe2e6fd176c7822ed60a78d3941aaea",message)
 
     elif ansCut[0]=="!機器人" and len(ansCut)>=2 and event.source.user_id in adminID:
-        line_bot_api.push_message("C4fe2e6fd176c7822ed60a78d3941aaea", TextSendMessage(text=pushAns))
+        line_bot_api.push_message("Cffc4e3c256a638f9f11e89c1171a9f4b", TextSendMessage(text=pushAns))
 #Cffc4e3c256a638f9f11e89c1171a9f4b       
          
     
