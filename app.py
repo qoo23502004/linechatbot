@@ -139,7 +139,8 @@ def handle_message(event):
         #for i in range(1,len(ansCut)):
         #    pushAns=pushAns+ansCut[i]+" "
         #pushAns = pushAns+ansCut[1]+" "
-        line_bot_api.push_message("Cffc4e3c256a638f9f11e89c1171a9f4b", TextSendMessage(text=str(ansCut[1])))
+        message = TextSendMessage(text=str(ansCut[1]))
+        line_bot_api.push_message("Cffc4e3c256a638f9f11e89c1171a9f4b", message)
 #Cffc4e3c256a638f9f11e89c1171a9f4b       
          
     
