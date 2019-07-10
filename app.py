@@ -140,7 +140,7 @@ def handle_message(event):
         #    pushAns=pushAns+ansCut[i]+" "
         #pushAns = pushAns+ansCut[1]+" "
         message = TextSendMessage(text=str(ansCut[1]))
-        line_bot_api.push_message("Cffc4e3c256a638f9f11e89c1171a9f4b", message)
+        line_bot_api.push_message("C4fe2e6fd176c7822ed60a78d3941aaea", message)
 #Cffc4e3c256a638f9f11e89c1171a9f4b       
          
     
