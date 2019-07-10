@@ -82,7 +82,7 @@ def handle_message(event):
         message = TextSendMessage(text="我也愛你唷 "+profile.display_name)
         line_bot_api.reply_message(event.reply_token, message)
 
-    if event.message.text=="!pic":
+    elif event.message.text=="!pic":
         #profile = line_bot_api.get_profile(event.source.user_id)
         message = ImageSendMessage(
         original_content_url='https://i.imgur.com/NhqT8yT.jpg',
@@ -93,39 +93,39 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, message)
         #line_bot_api.reply_message(event.reply_token, textMessage)
 
-    if event.message.text=="!表單":
+    elif event.message.text=="!表單":
         message = TextSendMessage(text="請大家幫忙填一下VV的週邊意願調查\nhttps://goo.gl/vwxMG3")
         line_bot_api.reply_message(event.reply_token, message)
     
-    if event.message.text=="!狀態":
+    elif event.message.text=="!狀態":
         string = checkState()
         message = TextSendMessage(text=string)
         line_bot_api.reply_message(event.reply_token, message)
 
-    if event.message.text in cityDict:
+    elif event.message.text in cityDict:
         profile = line_bot_api.get_group_member_profile(event.source.group_id,event.source.user_id)       
         string = weatherSearch(event.message.text)
         message = TextSendMessage(text=profile.display_name+" 所查詢的天氣資料如下：\n"+string)
         line_bot_api.reply_message(event.reply_token, message)
 
-    if event.message.text in feed:
+    elif event.message.text in feed:
         string = food(event.message.text)
         message = TextSendMessage(text="真心推薦: "+string)
         line_bot_api.reply_message(event.reply_token, message)
 
-    if event.message.text=="!GID":           
+    elif event.message.text=="!GID":           
         message = TextSendMessage(text=event.source.group_id)
         line_bot_api.reply_message(event.reply_token, message)
 
-    if event.message.text=="!RID":                  
+    elif event.message.text=="!RID":                  
         message = TextSendMessage(text=event.source.room_id)
         line_bot_api.reply_message(event.reply_token, message)
 
-    if event.message.text=="!UID":                  
+    elif event.message.text=="!UID":                  
         message = TextSendMessage(text=event.source.user_id)
         line_bot_api.reply_message(event.reply_token, message)
 
-    if event.message.text=="!test" and event.source.user_id in adminID:           
+    elif event.message.text=="!test" and event.source.user_id in adminID:           
         message = TextSendMessage(text="測試權限成功")
         line_bot_api.reply_message(event.reply_token, message)
 
@@ -133,34 +133,34 @@ def handle_message(event):
 
     ans=event.message.text
     ansCut=ans.split(' ')
-    if ansCut[0]=="!機器人" and len(ansCut)>=2 and event.source.user_id in adminID:
+    elif ansCut[0]=="!機器人" and len(ansCut)>=2 and event.source.user_id in adminID:
         for i in range(1,len(ansCut)):
             pushAns=pushAns+ansCut[i]+" "    
         line_bot_api.push_message("Cffc4e3c256a638f9f11e89c1171a9f4b", TextSendMessage(text=pushAns))
         
          
     
-    keyword=event.message.text
-    keywordCut=keyword.split(' ')
-    if keywordCut[0]=="!sr" or keywordCut[0]=="!SR" and len(keywordCut)>=2:
-        for i in range(1,len(keywordCut)):	
-            ytKeyword=ytKeyword+keywordCut[i]+" "
-        content = musicSearch(ytKeyword)
-        profile = line_bot_api.get_group_member_profile(event.source.group_id,event.source.user_id)
-        message = TextSendMessage(text=profile.display_name+" 查詢的影片在這 https://www.youtube.com/watch?v="+content)
+#    keyword=event.message.text
+#    keywordCut=keyword.split(' ')
+#    elif keywordCut[0]=="!sr" or keywordCut[0]=="!SR" and len(keywordCut)>=2:
+#        for i in range(1,len(keywordCut)):	
+#            ytKeyword=ytKeyword+keywordCut[i]+" "
+#        content = musicSearch(ytKeyword)
+#        profile = line_bot_api.get_group_member_profile(event.source.group_id,event.source.user_id)
+#        message = TextSendMessage(text=profile.display_name+" 查詢的影片在這 https://www.youtube.com/watch?v="+content)
         
-        line_bot_api.push_message("C4fe2e6fd176c7822ed60a78d3941aaea", TextSendMessage(text=event.source.user_id+" "+profile.display_name+" 查詢的影片在這 https://www.youtube.com/watch?v="+content))
-        line_bot_api.reply_message(event.reply_token, message)
+#        line_bot_api.push_message("C4fe2e6fd176c7822ed60a78d3941aaea", TextSendMessage(text=event.source.user_id+" "+profile.display_name+" 查詢的影片在這 https://www.youtube.com/watch?v="+content))
+#        line_bot_api.reply_message(event.reply_token, message)
 
 
-    googleKeyword=event.message.text
-    googleKeywordCut=googleKeyword.split(' ')
-    if googleKeywordCut[0]=="!google" and len(googleKeywordCut)>=2:
-        for i in range(1,len(googleKeywordCut)):
-            glKeyword=glKeyword+googleKeywordCut[i]+" "
-        content = googleSearch(glKeyword)
-        message = TextSendMessage(text=content)
-        line_bot_api.reply_message(event.reply_token, message)
+#    googleKeyword=event.message.text
+#    googleKeywordCut=googleKeyword.split(' ')
+#    if googleKeywordCut[0]=="!google" and len(googleKeywordCut)>=2:
+#        for i in range(1,len(googleKeywordCut)):
+#            glKeyword=glKeyword+googleKeywordCut[i]+" "
+#        content = googleSearch(glKeyword)
+#        message = TextSendMessage(text=content)
+#        line_bot_api.reply_message(event.reply_token, message)
     
 
 
