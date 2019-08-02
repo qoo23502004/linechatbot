@@ -103,7 +103,7 @@ def food(text):
 		count=len(dinner)
 		feedback=dinner[random.randint(0,len(dinner)-1)]
 		return feedback
-	0elif text=="!消夜" or text=="!宵夜":
+	elif text=="!消夜" or text=="!宵夜":
 		count=len(latenightmeal)
 		feedback=latenightmeal[random.randint(0,len(latenightmeal)-1)]
 		return feedback
