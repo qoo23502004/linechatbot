@@ -103,11 +103,48 @@ def food(text):
 		count=len(dinner)
 		feedback=dinner[random.randint(0,len(dinner)-1)]
 		return feedback
-	elif text=="!消夜" or text=="!宵夜":
+	0elif text=="!消夜" or text=="!宵夜":
 		count=len(latenightmeal)
 		feedback=latenightmeal[random.randint(0,len(latenightmeal)-1)]
 		return feedback
-	
+
+
+def getDate():
+	url =  "http://www.nongli.info/huangli/"
+	content = requests.get(url)
+	content.encoding = 'utf-8'
+
+	text="" #宜 忌內容
+	good="" #宜
+	bad=""  #忌
+
+	date1="" #國曆日期
+	date2="" #農曆日期
+	day=""  #宜忌開頭
+
+	soup = BeautifulSoup(content.text, 'html.parser')
+
+
+	a_tags = soup.find_all('li')
+	for tag in a_tags[18]:
+		date1=tag.string
+	for tag in a_tags[19]:
+		date2=tag.string  
+
+	text=soup.find_all(["li","b"], string="")  
+	good=text[28]
+	bad=text[30]
+	goodCut1=str(good).split('：')
+	goodCut2=str(goodCut1[1]).split("</li>")
+	badCut1=str(bad).split('：')
+	badCut2=str(badCut1[1]).split("</li>")
+
+	b_tags = soup.find_all('b')
+	for tag in b_tags:	
+		day=day+tag.string
+
+	result=date1+"\n"+date2+"\n"+day[2]+"："+goodCut2[0]+"\n"+day[3]+"："+badCut2[0]
+	return result
 
 
 

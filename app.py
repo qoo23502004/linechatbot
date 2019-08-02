@@ -115,6 +115,11 @@ def handle_message(event):
         message = TextSendMessage(text="真心推薦: "+string)
         line_bot_api.reply_message(event.reply_token, message)
 
+    elif event.message.text=="!今日":           
+        message = TextSendMessage(getDate())
+        line_bot_api.reply_message(event.reply_token, message)
+
+
     elif event.message.text=="!GID":           
         message = TextSendMessage(text=event.source.group_id)
         line_bot_api.reply_message(event.reply_token, message)
